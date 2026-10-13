@@ -1,0 +1,57 @@
+---
+title: "Dev Map
+author: "Cameron Hempton
+date: "2026-10-13
+format: html
+---
+
+# Yippee! 
+This doc is mostly a guide to what's in the repo, what has been, and what is next to be.
+
+**First thing's first**, run the next code chunk to install/load packages, and source local functions
+```{r}
+source(file.path("R","setup_dependencies.R"))
+
+locals_ready_to_source <- c("config", "ollama_api", "ollama_installation", "ollama_service", "utils")
+scripts <- purrr::map_chr(locals_ready_to_source, function(.x){paste0("R/",.x,".R")} ) 
+walk(scripts, source)
+
+```
+
+# So far, 
+Without having the actual data or model specs hammered out yet, I've mostly set-up our infrastructure to have R talk to ollama (not prompting yet)
+
+**ollama_installation.R**
+This one is a little silly but the utils might be helpful
+- `ollama_executable()` looks in a few places for the executable, OS specific, returns "" if not found
+- `ollama_is_installed()` T/F wrapper for ollama_executable 
+- `ollama_installation_help()` literally prints the instructions to download to console and tries to boot the website
+
+**config.R**
+`ollama_config()` generates a default object of class "foodtextllm_config" (placeholder) that can be passed around. This is mostly to be versatile to eventually packaging up
+
+**ollama_api.R**
+Mostly what we will use here is `ollama_api_request()`, which makes API calls to the local ollama server. This makes ollamaR functionally irrelevant, may butt heads with some ellmer stuff but we can drop it if need be 
+
+**ollama_service.R**
+This one has the bulk of the usable stuff right now and is a little messy but here's the main stuff.
+It creates the environment `.ollama_process_state` for process tracking within this R session
+- `ollama_status()`, which returns a diagnostic list 
+  - (legible version with `print.ollama_status()`)
+- `ollama_start()`, which attempts to start a new ollama process
+- `ollama_stop()`, which attempts to kill an ollama process started by this R session
+Sometimes there are issues if the user has ollama running but it wasn't started by this R session (is untracked)
+- `ollama_restart()` force kills all ollama processes on the computer, then runs ollama_start. This code is os-specific. I wrote and tested a version of it for MacOS that works, but used GenAI to compose one for windows and linux, these will require testing `@TODO`
+- `ollama_force_stop()` isn't intended to be interfaced with as it is used by restart, but could be helpful in development
+
+**system_check.R** 
+Meant to be a user friendly way to navigate all this stuff, could be a forward facing system diagnostic in the future
+- `system_check()` generates a list of check variables, intended to be passed between functions
+- `print.system_check()` generates a diagnostic output that checks ollama program + model status, and suggests a "next step" for the user based on what it identifies
+---
+
+# Future Thoughts
+
+Read more about [vitals](https://vitals.tidyverse.org/) for benchmarking
+
+
