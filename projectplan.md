@@ -164,3 +164,8 @@ Ensure we're checking these on CPU only as possible
 - Write a way to flag false positive establishment extraction, whenever negations are wrong, when an exposure is assigned to the wrong person, when dates or addresses are fabricated, etc. 
 
 We will use this review pipeline both for comparing models, and for comparing prompt performance
+
+
+# Development Guidelines
+
+As a note, while we aren't doing the whole devtools and roxygen shabang yet, this project could eventually be useful as a shippable package, so for that reason, each file should contain relateed function definitions, nothing should run on file sourcing, no reliance on global variables, etc. 
