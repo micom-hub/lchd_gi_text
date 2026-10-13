@@ -10,15 +10,26 @@ This doc is mostly a guide to what's in the repo, what has been, and what is nex
 
 **First thing's first**, run the next code chunk to install/load packages, and source local functions
 ```{r}
+# just packages
 source(file.path("R","setup_dependencies.R"))
 
-locals_ready_to_source <- c("config", "ollama_api", "ollama_installation", "ollama_service", "utils")
+# local scripts that are staged and ready to be looked at
+locals_ready_to_source <- c(
+  "config", 
+  "ollama_api", 
+  "ollama_installation", 
+  "ollama_service", 
+  "utils", 
+  "ollama_models", 
+  "system_check"
+  )
+
 scripts <- purrr::map_chr(locals_ready_to_source, function(.x){paste0("R/",.x,".R")} ) 
 walk(scripts, source)
 
 ```
 
-# So far, 
+# So far:
 Without having the actual data or model specs hammered out yet, I've mostly set-up our infrastructure to have R talk to ollama (not prompting yet)
 
 **ollama_installation.R**
@@ -44,8 +55,15 @@ Sometimes there are issues if the user has ollama running but it wasn't started 
 - `ollama_restart()` force kills all ollama processes on the computer, then runs ollama_start. This code is os-specific. I wrote and tested a version of it for MacOS that works, but used GenAI to compose one for windows and linux, these will require testing `@TODO`
 - `ollama_force_stop()` isn't intended to be interfaced with as it is used by restart, but could be helpful in development
 
+**ollama_models**
+Interacting with ollama to check on model stuff, includes:
+- `ollama_model_list()` which lists all installed models
+- `ollama_model_installed(model)` which checks if a model is installed
+- `ollama_model_pull(model)` which downloads a model by name (check ollama model library)
+- `ollama_model_remove(model)` which removes a model that was in the model list
+
 **system_check.R** 
-Meant to be a user friendly way to navigate all this stuff, could be a forward facing system diagnostic in the future
+Meant to be a user friendly way to navigate the set-up process, and for functions to quickly diagnose any errors with a centralized system checker. This will likely end up being the front-facing diagnostic function
 - `system_check()` generates a list of check variables, intended to be passed between functions
 - `print.system_check()` generates a diagnostic output that checks ollama program + model status, and suggests a "next step" for the user based on what it identifies
 ---
