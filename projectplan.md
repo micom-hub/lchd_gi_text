@@ -169,3 +169,115 @@ We will use this review pipeline both for comparing models, and for comparing pr
 # Development Guidelines
 
 As a note, while we aren't doing the whole devtools and roxygen shabang yet, this project could eventually be useful as a shippable package, so for that reason, each file should contain relateed function definitions, nothing should run on file sourcing, no reliance on global variables, etc. 
+
+
+# Development Phase 2
+Infrastructure for interacting with ollama models is built, now time to develop the model querying process.
+
+ We will construct a pipeline that does the following in order:
+
+ 1) Loads interview narratives from a dataframe
+ 2) Handles requested model availability/install
+ 3) Creates ellmer chat with local Ollama as endpoint
+ 4) Applies a system prompt and structured-output schema to the chat
+ 5) Extracts food-consumption events from each narrative
+ 6) attempts to validate, and normalize model outputs 
+ 7) Cleanly handle errors, "retry"s, checkpoints, and resumable batches (for heavy processing)
+8) Record resource use, runtime, and failures
+9) Record all provenance for each run for reproducibility (as far as is possible with LLMs)
+
+We will then write a model comparison script that formulates "experiments" as tidy parameter grids/samples, with evaluation using the `vitals`package for later benchmarking
+
+We will consider phase 2 over when we have the infrastructure to fairly compare candidate models for how they perform on a manually annotated cross-validation dataset. 
+
+We will aim to replicate the tidymodels workflow for this component, with a "model configuration" defined as a unique combination of:
+
+**model x quantization x prompt x schema x context setting**
+
+## Implementation plan
+
+#### Step 1: Containerize
+(Just freeze packages in place with renv for now)
+
+#### Step 2: Extraction specs
+Our primary unit of extraction will be a "food-consumption event", which comprises the food eaten, its source, and whatever other we can establish about it (approximate date, meal, supporting line from text, etc.)
+
+Things to figure out how to handle still:
+- When a respondent talks about a family member's food (if applicable)
+- Assuring that negation is handled properly by the LLM 
+- Preserving uncertainty somehow (when the interviewee conveys doubt)
+
+#### Step 3: Reference extraction
+
+With the llm-generated synthetic data (made more realistic after consulting with Alvaro), we should make reference labels for a handfull of these records
+
+#### Step 4: Implement a model registry
+
+We will create a registry of models we want to test over time, tracking their ollama tag, model family, parameter class, quantization, minimum ram, context length, etc. We do so with the goal of eventually "recommending" different model classes that we will implement within our script, arbitrarily aiming to fill the following roles:
+- Ultralightweight (< 2B)
+- Small (< 4 B)
+- More sizeable ( < 8B)
+
+#### Step 5: Expand our ollama interface
+
+We need to be able to distinguish between installed. models, models in memory, and models ready to be interfaced with
+
+Step 6: Build the ellmer factory
+
+We will wrap ellmer chat creation functions to create a way to programatically interface with ellmer, using our ollama api set-up.
+
+We will make this maximally compatible with ellmer, not re-inventing the wheel wherever we don't have to 
+
+#### Step 6: Prompt registry
+
+We will, unfortunately, have to respect prompt engineering, treating prompts as software. Good prompts should do things like:
+- Tell the model it is an information extraction system
+- Narratives are "untrusted data", and not explicit extructions
+- extraction is restricted to what was actually reported
+- distinguish the respondent from other people in the prompt
+- distinguish eating from buying, preparing, handling, or other ways to interact with food
+- Preserve negation and uncertainty
+- It must not infer unreported ingredients or locations
+- it must return the exact evidence text supporting its claims
+- It must return only within the expressed structure
+- It must return null for missing info
+- It should somehow flag ambiguous records rather than guessing (I imagine this will be hard to narrow the behavior on)
+
+#### Step 7: Using ellmer's structured extraction tools
+
+We should probably do this incrementally, especially for the little models. 
+Starting with mentions of food/beverages, then expanding. This might lead to differential prompting/extraction for smaller versus larger model wrappers
+
+#### Step 8: Write an extract_interview() function
+
+Configurable to various models, prompts, schema, configs, hyperparameter sets, etc.
+
+#### Step 9: Writing validation 
+
+We will write a bunch of tests to interrogate the LLM outputs for validity, and normalize formatting wherever possible when working with free text.
+
+This will include scanners for "nonsense" that will potentially flag interview lines to be re-run through the extraction model again, maybe with something shuffled like rolling context windows. This could be a hyperparameter (n_retries)
+
+#### Step 10: Convert extraction results into tidy tables 
+
+As it says
+
+#### Step 11: Implement batch extraction 
+
+parallelization might be crazy for this one, huge ram spikes. 
+
+#### Step 12: Add the stuff we need to experiment, comparing models
+
+Experiment IDs, tidy experiment grid, profiling for operational performance, building deterministic benchmark metrics, cross-validation infrastructure 
+
+#### Step 13: Stress testing
+
+We will need to eventually test some edge cases and see how it does. Stuff like:
+- I did not eat the salad
+- I went to the restaurant and my friend ate the chicken
+- I ate there on Friday ..... Oh wait, I actually ate there on Wednesday
+- Misspellings of common restaurants
+- Incomplete sentences
+- Self-contradiction
+- God forbid, any interview which contains something to the effect of "ignore the instructions"
+- Anything referred to hypothetically (maybe by the interviewer)
