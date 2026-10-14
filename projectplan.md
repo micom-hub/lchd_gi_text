@@ -266,7 +266,7 @@ As it says
 
 parallelization might be crazy for this one, huge ram spikes. 
 
-#### Step 12: Add the stuff we need to experiment, comparing models
+#### Step 12: Add the stuff we need to experiment, comparing model
 
 Experiment IDs, tidy experiment grid, profiling for operational performance, building deterministic benchmark metrics, cross-validation infrastructure 
 
