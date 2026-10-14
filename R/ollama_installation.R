@@ -15,6 +15,8 @@ ollama_executable <- function() {
       )
     )
   }
+  
+operating_system <- Sys.info()[["sysname"]]
 
   # If that doesn't work, extract candidates based on OS
   candidates <- switch(
