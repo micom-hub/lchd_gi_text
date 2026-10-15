@@ -9,9 +9,21 @@
 # layer.
 
 required_packages <- c(
+  # llm interface
+  "ellmer",
+  "vitals",
+
+  # ollama process management
   "httr2",
   "processx",
-  "tidyverse"
+
+  # processing
+  "tidyverse",
+  "tidymodels",
+  "jsonlite",
+  "rlang",
+  "cli",
+  "digest"
 )
 
 installed_packages <- rownames(utils::installed.packages())
