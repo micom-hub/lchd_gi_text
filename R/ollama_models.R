@@ -1,3 +1,4 @@
+here::i_am("R/ollama_models.R")
 # These functions interact with ollama to list, download, check, or delete ollama models
 
 # Return a list of installed models available in Ollama

@@ -1,3 +1,5 @@
+here::i_am("R/ollama_installation.R")
+
 # Functions to check if/where Ollama is installed, or link user to the download link
 
 # Return the path to the ollama executable using a few inferred locations. If it isn't found, return ""

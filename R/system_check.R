@@ -1,3 +1,4 @@
+here::i_am("R/system_check.R")
 # High level diagnostics check, this could be front facing
 
 system_check <- function(

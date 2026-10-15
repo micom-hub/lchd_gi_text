@@ -1,3 +1,4 @@
+here::i_am("R/setup_dependencies.R")
 # run this once while setting up the project on a new computer
 
 # httr2 needed to send requests to local ollama
@@ -9,6 +10,8 @@
 # layer.
 
 required_packages <- c(
+  # admin
+  "here",
   # llm interface
   "ellmer",
   "vitals",

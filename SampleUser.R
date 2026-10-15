@@ -1,9 +1,10 @@
+here::i_am("SampleUser.R")
 # An example of how a user might go about using this stuff
 
 # this loads all dependencies and sources all of our functions
 # equivalenet to library(`whatever this package ends up called`)
 
-load_project_path <- file.path(getwd(), "R/load_project.R")
+load_project_path <- here("R/load_project.R")
 source(load_project_path)
 
 # Set-up -------

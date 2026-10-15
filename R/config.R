@@ -1,3 +1,5 @@
+here::i_am("R/config.R")
+
 # Defines how the repo connects to Ollama
 #
 # Ollama API intro documentation: https://docs.ollama.com/api/introduction

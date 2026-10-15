@@ -1,3 +1,4 @@
+here::i_am("R/ollama_service.R")
 # This file manages interactions with the Ollama app
 #
 # We create an environment to store info about the Ollama process started by the R session, but not to store narratives, prompts, or responses
