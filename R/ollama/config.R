@@ -1,4 +1,4 @@
-here::i_am("R/config.R")
+here::i_am("R/ollama/config.R")
 
 # Defines how the repo connects to Ollama
 #

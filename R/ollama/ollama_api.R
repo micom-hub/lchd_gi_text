@@ -1,4 +1,4 @@
-here::i_am("R/ollama_api.R")
+here::i_am("R/ollama/ollama_api.R")
 
 # This file contains the code to communicate with Ollama
 # ollama_api_request() will be wrapped up in future code

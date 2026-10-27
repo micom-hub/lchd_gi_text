@@ -25,8 +25,7 @@ required_packages <- c(
   "tidymodels",
   "jsonlite",
   "rlang",
-  "cli",
-  "digest"
+  "cli"
 )
 
 installed_packages <- rownames(utils::installed.packages())

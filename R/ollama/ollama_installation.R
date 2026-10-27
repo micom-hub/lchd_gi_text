@@ -1,4 +1,4 @@
-here::i_am("R/ollama_installation.R")
+here::i_am("R/ollama/ollama_installation.R")
 
 # Functions to check if/where Ollama is installed, or link user to the download link
 
