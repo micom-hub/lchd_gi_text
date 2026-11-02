@@ -4,10 +4,10 @@ here::i_am("SampleUser.R")
 # this loads all dependencies and sources all of our functions
 # equivalenet to library(`whatever this package ends up called`)
 
-load_project_path <- here("R/load_project.R")
+load_project_path <- here::here("R/load_project.R")
 source(load_project_path)
 
-# Set-up -------
+# OLLAMA SETUP --------
 
 # 1) Make and inspect a local ollama config
 config <- ollama_config()
@@ -28,7 +28,7 @@ if (status$installed && !status$reachable) {
 }
 #run: ollama_restart(confirm = TRUE) if R session doesn't like whats going on
 
-# Looking at models ---------
+# Looking at models 
 
 # 5) List models currently installed
 if (status$reachable) {
@@ -45,4 +45,69 @@ print.system_check()
 #   model = "model_we_like:tag",
 #   config = config,
 #   confirm_download = TRUE
+# )
+
+# MDSS Pipeline ------
+
+library(tidyverse)
+
+# read in MDSS data
+path_to_cyclo <- '/Users/cameron/Library/CloudStorage/Dropbox-UniversityofMichigan/SPH-MICOM/PROJECTS/MISUPPORT/Livingston County/20261027_livingston_cyclo.csv'
+
+df <- read_csv(path_to_cyclo)
+
+# Deterministic pre-processing of MDSS exposure data
+
+prepared <- prepare_mdss_exposures(
+  data = df,
+  id = InvestigationID,
+  onset_date = Onset_Date,
+  interview_date = Date_of_interview,
+  drop_without_exposure = TRUE
+)
+
+print(prepared)
+
+
+# Inspect one compact payload before model use.
+cat(
+  jsonlite::toJSON(
+    prepared$llm_payload[[1]],
+    auto_unbox = TRUE,
+    pretty = TRUE,
+    null = "null",
+    na = "null"
+  )
+)
+
+# Reconcile a small subset
+test_prepared <- prepared |>
+  slice_sample(n = 3L)
+
+test_results <- reconcile_prepared_exposures(
+  prepared = test_prepared,
+  model = "your-installed-model:tag",
+  max_attempts = 2L,
+  progress = TRUE
+)
+
+# Inspect outputs
+
+exposure_events(test_results)
+
+exposure_foods(test_results)
+
+unlinked_exposure_foods(test_results)
+
+exposure_diagnostics(test_results)
+
+# Full wrapper -------
+
+# results <- process_mdss_exposures(
+#   data = df,
+#   id = InvestigationID,
+#   onset_date = Onset_Date,
+#   interview_date = Date_of_interview,
+#   model = "your-installed-model:tag",
+#   checkpoint_path = "results/mdss_checkpoint.rds"
 # )

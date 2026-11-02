@@ -281,3 +281,9 @@ We will need to eventually test some edge cases and see how it does. Stuff like:
 - Self-contradiction
 - God forbid, any interview which contains something to the effect of "ignore the instructions"
 - Anything referred to hypothetically (maybe by the interviewer)
+
+
+# Current MDSS output
+- Doesn't have the right stuff
+- need new output restaurant, case status, etc.
+- Notes do contain some stuff

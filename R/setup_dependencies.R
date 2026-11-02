@@ -23,6 +23,7 @@ required_packages <- c(
   # processing
   "tidyverse",
   "tidymodels",
+  "tidyselect",
   "jsonlite",
   "rlang",
   "cli"
