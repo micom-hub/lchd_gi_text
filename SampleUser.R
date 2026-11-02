@@ -1,6 +1,5 @@
 here::i_am("SampleUser.R")
 # An example of how a user might go about using this stuff
-
 # this loads all dependencies and sources all of our functions
 # equivalenet to library(`whatever this package ends up called`)
 
@@ -86,7 +85,7 @@ test_prepared <- prepared |>
 
 test_results <- reconcile_prepared_exposures(
   prepared = test_prepared,
-  model = "your-installed-model:tag",
+  model = "llama3.2:1b",
   max_attempts = 2L,
   progress = TRUE
 )
