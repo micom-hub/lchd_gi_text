@@ -1,4 +1,4 @@
-here::i_am("R/load_project.R")
+
 # Loader for experimentation at this point. This will go away once it's in a package
 
 packages_script <- here::here("R/setup_dependencies.R")
@@ -30,21 +30,25 @@ function_files <- c(
   "R/reconciliation/reconciliation_single.R",
   "R/reconciliation/reconciliation_batch.R",
   "R/reconciliation/reconciliation_tidy.R",
+  
+  # Narrative extraction
+  "R/extraction_specifications_legacy/extraction_spec.R",
+  "R/extraction/extraction_schema.R",
 
   # Wrappers
   "R/workflows/process_exposures.R"
 )
 
+
+
 for (file in function_files) {
-  if (!file.exists(file)) {
-    stop(
-      "Missing project file: ",
-      file,
-      call. = FALSE
-    )
+  file_path <- here::here(file)
+
+  if (!file.exists(file_path)) {
+    stop("Missing project file: ", file_path, call. = FALSE)
   }
 
-  source(file, local = globalenv())
+  source(file_path, local = globalenv())
 }
 
-print("All repo scripts under ./R/ have been sourced")
+message("All listed project scripts have been sourced.")

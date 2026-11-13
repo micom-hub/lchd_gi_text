@@ -1,4 +1,3 @@
-here::i_am("R/extraction/extraction_spec.R")
 #
 # Machine-readable version of the food-event extraction spec described in extraction_v1.md
 #

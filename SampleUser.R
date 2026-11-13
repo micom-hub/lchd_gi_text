@@ -51,7 +51,7 @@ print.system_check()
 library(tidyverse)
 
 # read in MDSS data
-path_to_cyclo <- '/Users/cameron/Library/CloudStorage/Dropbox-UniversityofMichigan/SPH-MICOM/PROJECTS/MISUPPORT/Livingston County/20261027_livingston_cyclo.csv'
+path_to_cyclo <- 'C:/Users/alvarojh/University of Michigan Dropbox/Alvaro Hurtado/20261027_livingston_cyclo.csv'
 
 df <- read_csv(path_to_cyclo)
 
