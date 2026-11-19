@@ -1,0 +1,2 @@
+"model","prompt_id","records","failures","mention_precision","mention_recall","mention_f1","relationship_accuracy_on_matched","correct_pair_recall","correct_pair_f1","exact_record_rate","median_seconds"
+"phi4-mini:3.8b","mdss_rules_v2",32,0,0.893617021276596,0.893617021276596,0.893617021276596,0.952380952380952,0.851063829787234,0.851063829787234,0.71875,3.86806046962738

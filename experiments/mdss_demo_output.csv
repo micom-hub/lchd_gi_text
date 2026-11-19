@@ -1,0 +1,6 @@
+source_index,restaurant,visit_date,location,original_answer,food,relationship
+0,Restaurant A,2026-06-10,Brighton,"Burger, onion rings and iced tea",Burger,consumed
+0,Restaurant A,2026-06-10,Brighton,"Burger, onion rings and iced tea",onion rings,consumed
+0,Restaurant A,2026-06-10,Brighton,"Burger, onion rings and iced tea",iced tea,consumed
+1,Restaurant B,NA,Howell,I ate a pretzel. My father ate a hot dog.,pretzel,consumed
+1,Restaurant B,NA,Howell,I ate a pretzel. My father ate a hot dog.,hot dog,other_person_consumed

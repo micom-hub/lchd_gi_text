@@ -1,0 +1,53 @@
+"model","prompt_id","test_id","expected_food","predicted_food","expected_relationship","predicted_relationship","outcome","exact_spelling"
+"phi4-mini:3.8b","mdss_rules_v2","followup_01","Turkey","Turkey","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_01","potatoes","potatoes","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_02","Burger","Burger","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_02","onion rings","onion rings","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_02","iced tea","iced tea","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_03","Fish sticks","Fish sticks","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_03","baked beans","baked beans","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_03","lemonade","lemonade","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_04","Macaroni and cheese","Macaroni and cheese","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_05","Peanut butter and jelly sandwich","Peanut butter and jelly sandwich","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_06","Sweet and sour chicken","Sweet and sour chicken","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_07","Bagel",,"consumed",,"missed_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_07","orange juice","orange juice","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_07",,"Bagel with cream cheese",,"consumed","extra_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_08","Burrito",,"consumed",,"missed_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_08",,"Burrito with black beans, corn and salsa",,"consumed","extra_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_09","taco","taco","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_09","orange","orange","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_09",,"cabbage",,"consumed","extra_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_10","Salad",,"consumed",,"missed_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_10","breadsticks","breadsticks","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_10",,"Salad with cucumber and feta",,"consumed","extra_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_11","hot dog","hot dog","other_person_consumed","other_person_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_11","pretzel","pretzel","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_12","oatmeal","oatmeal","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_12","waffles","waffles","other_person_consumed","other_person_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_13","nuggets","nuggets","other_person_consumed","consumed","wrong_relationship",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_13","milk","milk","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_14","spaghetti","spaghetti","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_15","chili","chili","other_person_consumed","other_person_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_15","crackers","crackers","explicitly_not_consumed","explicitly_not_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_16","steak","steak","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_16","broccoli","broccoli","explicitly_not_consumed","explicitly_not_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_17","custard","custard","explicitly_not_consumed","explicitly_not_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_17","muffin","muffin","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_18","pineapple","pineapple","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_19","biscuit","biscuit","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_19","coffee","coffee","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_20","shrimp","shrimp","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_21","quesadilla","quesadilla","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_22","grapes","grapes","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_23","popcorn","popcorn","explicitly_not_consumed","explicitly_not_consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_24","tuna",,"explicitly_not_consumed",,"missed_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_24","salmon","salmon","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_25","lentils","lentils","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_26",,"Menu item unknown",,"unclear","extra_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_29","dumplings","dumplings","explicitly_not_consumed","other_person_consumed","wrong_relationship",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_30","Roast beef","Roast beef","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_31","melon","melon","unclear","unclear","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_32","sausage","sausage","consumed","consumed","correct",TRUE
+"phi4-mini:3.8b","mdss_rules_v2","followup_32","bacon",,"explicitly_not_consumed",,"missed_food",FALSE
+"phi4-mini:3.8b","mdss_rules_v2","followup_32","water","water","consumed","consumed","correct",TRUE

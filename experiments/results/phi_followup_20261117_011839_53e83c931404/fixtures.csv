@@ -1,0 +1,33 @@
+id,category,input,annotation_note,review_status
+followup_01,food_lists,Turkey and potatoes,Two separately listed foods; questionnaire context supports consumption.,draft_not_independently_reviewed
+followup_02,food_lists,"Burger, onion rings and iced tea",Three foods/drinks; onion rings and iced tea remain compound names.,draft_not_independently_reviewed
+followup_03,food_lists,Fish sticks; baked beans; lemonade,Three independently listed items.,draft_not_independently_reviewed
+followup_04,compound_dish,Macaroni and cheese,"Conventional dish name: one dish, not two foods. Review this grouping convention.",draft_not_independently_reviewed
+followup_05,compound_dish,Peanut butter and jelly sandwich,One named sandwich; no independent ingredient rows.,draft_not_independently_reviewed
+followup_06,compound_dish,Sweet and sour chicken,One dish name; and does not always delimit foods.,draft_not_independently_reviewed
+followup_07,ingredients,Bagel with cream cheese; orange juice,Cream cheese is attached to the bagel; excluded as a standalone row by current rule.,draft_not_independently_reviewed
+followup_08,ingredients,"Burrito with black beans, corn and salsa",Named ingredients stay within their parent dish; not scored as separate foods.,draft_not_independently_reviewed
+followup_09,ingredients,I ate a taco with cabbage. I also ate an orange.,Cabbage is an ingredient; orange is independently eaten.,draft_not_independently_reviewed
+followup_10,ingredients,"Salad with cucumber and feta, plus breadsticks",Cucumber/feta are ingredients; breadsticks are separate.,draft_not_independently_reviewed
+followup_11,other_person,My father ate a hot dog. I ate a pretzel.,Attribute each food to the correct person.,draft_not_independently_reviewed
+followup_12,other_person,I ate oatmeal. My roommate ate waffles.,Other-person consumption does not establish respondent consumption.,draft_not_independently_reviewed
+followup_13,other_person,My son ate nuggets; I only drank milk.,Food versus drink does not change person attribution.,draft_not_independently_reviewed
+followup_14,other_person,We both ate spaghetti.,Both includes the respondent; consumed wins.,draft_not_independently_reviewed
+followup_15,other_person_negation,My friend ate chili. I did not have crackers.,Keep other-person food and the explicit denial.,draft_not_independently_reviewed
+followup_16,negation,"I ate steak, but no broccoli.","No broccoli negates that item, not the whole meal.",draft_not_independently_reviewed
+followup_17,negation,Did not eat custard. Had a muffin.,Questionnaire subject is the respondent; retain denied foods.,draft_not_independently_reviewed
+followup_18,uncertainty,I might have eaten pineapple.,Possibility is not confirmed consumption.,draft_not_independently_reviewed
+followup_19,uncertainty,I ate a biscuit. Not sure whether I drank coffee.,Uncertainty applies only to coffee.,draft_not_independently_reviewed
+followup_20,uncertainty,I do not remember if I ate shrimp.,Cannot recall is not a denial.,draft_not_independently_reviewed
+followup_21,habitual,"I normally get a quesadilla, but cannot recall that visit.",Habitual choice does not establish the particular exposure.,draft_not_independently_reviewed
+followup_22,purchase_unknown,Bought grapes for home; did not say whether I ate them.,Purchase alone leaves consumption unknown.,draft_not_independently_reviewed
+followup_23,purchase_denial,I bought popcorn but did not eat any of it.,Reduced four-label schema represents definite nonconsumption as explicitly_not_consumed.,draft_not_independently_reviewed
+followup_24,correction,"I first said tuna, but that was a mistake. I did not eat tuna. I ate salmon.",Final explicit correction governs tuna.,draft_not_independently_reviewed
+followup_25,conflict,I ate lentils. Later I said I did not eat lentils. I cannot tell which statement is right.,One food row with unresolved conflict; unclear in the reduced schema.,draft_not_independently_reviewed
+followup_26,empty,Menu item unknown.,Unknown item is not a named food; preserve parent event elsewhere.,draft_not_independently_reviewed
+followup_27,empty,I took deliveries to customers and did not eat at the cafe.,No specific food named; deliveries/cafe are not food names.,draft_not_independently_reviewed
+followup_28,empty,No food details available.,No specific named food; empty foods array.,draft_not_independently_reviewed
+followup_29,negation,I delivered dumplings to a customer but did not eat them.,Specific food exists despite delivery activity; explicit respondent denial.,draft_not_independently_reviewed
+followup_30,date_unknown,Roast beef. Visit date unknown.,Missing date does not make consumption uncertain.,draft_not_independently_reviewed
+followup_31,hypothetical,The interviewer asked whether I ate melon. I could not remember.,Question is not an affirmative answer.,draft_not_independently_reviewed
+followup_32,negation_scope,"I ate sausage, not bacon, and drank water.",Resolve negation locally; keep beverage.,draft_not_independently_reviewed

@@ -1,0 +1,17 @@
+"model","prompt_id","test_id","category","status","error","elapsed_seconds","reference","predicted","matched","correct","exact_record"
+"phi4-mini:3.8b","mdss_rules_v2","explicit_01","explicit","success",,14.4885129928589,3,3,3,3,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","explicit_02","explicit","success",,5.97416996955872,3,3,3,3,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","explicit_03","explicit","success",,6.09094405174255,3,3,3,3,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_01","fragment","success",,3.73820114135742,2,1,0,0,FALSE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_02","fragment","success",,5.93775320053101,3,3,3,3,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_03","other_person_negation","success",,4.88990688323975,2,2,2,2,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_04","uncertainty","success",,3.49952387809753,1,1,1,1,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_05","uncertainty","success",,3.70543718338013,1,1,1,1,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_06","purchase_unknown","success",,3.63360214233398,1,1,1,1,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_07","habitual","success",,3.74353098869324,1,1,1,1,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_08","negation","success",,4.88044309616089,2,2,2,2,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_09","ingredients","success",,4.90890312194824,1,2,1,1,FALSE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_10","other_person","success",,4.70052194595337,2,2,2,1,FALSE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_11","correction","success",,4.20523309707642,1,1,1,1,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_12","empty","success",,1.31325507164001,0,0,0,0,TRUE
+"phi4-mini:3.8b","mdss_rules_v2","mdss_13","empty","success",,3.93558692932129,0,1,0,0,FALSE

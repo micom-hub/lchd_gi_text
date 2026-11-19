@@ -1,0 +1,48 @@
+id,food_text,relationship
+followup_01,Turkey,consumed
+followup_01,potatoes,consumed
+followup_02,Burger,consumed
+followup_02,onion rings,consumed
+followup_02,iced tea,consumed
+followup_03,Fish sticks,consumed
+followup_03,baked beans,consumed
+followup_03,lemonade,consumed
+followup_04,Macaroni and cheese,consumed
+followup_05,Peanut butter and jelly sandwich,consumed
+followup_06,Sweet and sour chicken,consumed
+followup_07,Bagel,consumed
+followup_07,orange juice,consumed
+followup_08,Burrito,consumed
+followup_09,taco,consumed
+followup_09,orange,consumed
+followup_10,Salad,consumed
+followup_10,breadsticks,consumed
+followup_11,hot dog,other_person_consumed
+followup_11,pretzel,consumed
+followup_12,oatmeal,consumed
+followup_12,waffles,other_person_consumed
+followup_13,nuggets,other_person_consumed
+followup_13,milk,consumed
+followup_14,spaghetti,consumed
+followup_15,chili,other_person_consumed
+followup_15,crackers,explicitly_not_consumed
+followup_16,steak,consumed
+followup_16,broccoli,explicitly_not_consumed
+followup_17,custard,explicitly_not_consumed
+followup_17,muffin,consumed
+followup_18,pineapple,unclear
+followup_19,biscuit,consumed
+followup_19,coffee,unclear
+followup_20,shrimp,unclear
+followup_21,quesadilla,unclear
+followup_22,grapes,unclear
+followup_23,popcorn,explicitly_not_consumed
+followup_24,tuna,explicitly_not_consumed
+followup_24,salmon,consumed
+followup_25,lentils,unclear
+followup_29,dumplings,explicitly_not_consumed
+followup_30,Roast beef,consumed
+followup_31,melon,unclear
+followup_32,sausage,consumed
+followup_32,bacon,explicitly_not_consumed
+followup_32,water,consumed

@@ -34,6 +34,9 @@ function_files <- c(
   # Narrative extraction
   "R/extraction_specifications_legacy/extraction_spec.R",
   "R/extraction/extraction_schema.R",
+  "R/extraction/extraction_prompt.R",
+  "R/extraction/event_food_schema.R",
+  "R/extraction/event_food_prompt.R",
 
   # Wrappers
   "R/workflows/process_exposures.R"
